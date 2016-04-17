@@ -1,10 +1,9 @@
 {
   "name": "grids",
   "version": "1.0.0",
-  "description": "Scss Flexbox Grid Library",
-  "main": "gulpfile.babel.js",
+  "description": "A simple, customisable, scss Flexbox Grid Library",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "eslint ."
   },
   "author": "Stuart Hammar <stuart.hammar@gmail.com>",
   "license": "ISC",
@@ -19,6 +18,7 @@
     "gulp-autoprefixer": "^3.1.0",
     "gulp-sass": "^2.2.0"
   },
+  "private": true,
   "babel": {
     "presets": [
       "es2015"

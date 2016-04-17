@@ -1,6 +1,90 @@
-@import 'variables';
-@import 'mixins';
+// ------------------------------------
+// Variables
+// ------------------------------------
 
+// Number of Columns
+$columns: 12 !default;
+$column-gutter: 20px !default;
+
+// Container widths
+$container-width-large: 1170px !default;
+$container-width-medium: 970px !default;
+$container-width-small: 750px !default;
+
+// Breakpoints
+$screen-large: 1200px !default;
+$screen-medium: 992px !default;
+$screen-small: 768px !default;
+
+// ------------------------------------
+// Mixins
+// ------------------------------------
+
+// Generate the different container sizes at various break points
+// Usage:
+//    @import generate-container ( <Nested List Of (breakpoint-size, container-size)> )
+// Example:
+//    @import generate-container ( (1200px, 1170px), (768px, 750px) )
+@mixin generate-container ($breakpoints) {
+  @each $bp-size, $container-size in $breakpoints {
+    @media (min-width: $bp-size) {
+      max-width: $container-size + ($column-gutter * 2);
+    }
+  }
+}
+
+// Cell Size Mixin
+@mixin generate-cols ($columns, $breakpoints) {
+  @for $i from 1 through $columns {
+    .col--#{$i} {
+      flex: 1 1 ($i / $columns * 100%);
+      max-width: $i / $columns * 100%;
+    }
+
+    @each $bp-size, $name in $breakpoints {
+      .col--#{$i}-#{$name} {
+        @media (min-width: $bp-size) {
+          flex: 1 1 ($i / $columns * 100%);
+          max-width: $i / $columns * 100%;
+        }
+      }
+    }
+  }
+}
+
+// Grid Alignment Mixin
+@mixin row-alignment ($position, $breakpoints) {
+  .row--align-#{$position} {
+    @content;
+  }
+
+  @each $bp-size, $name in $breakpoints {
+    .row--align-#{$position}-#{$name} {
+      @media (min-width: $bp-size) {
+        @content;
+      }
+    }
+  }
+}
+
+// Cell Alignment Mixin
+@mixin col-alignment ($position, $breakpoints) {
+  .col--align-#{$position} {
+    @content;
+  }
+  @each $bp-size, $name in $breakpoints {
+    .col--align-#{$position}-#{$name} {
+      @media (min-width: $bp-size) {
+        @content;
+      }
+    }
+  }
+}
+
+
+// ------------------------------------
+// CSS
+// ------------------------------------
 .container {
   display: block;
   margin: 0 auto;
