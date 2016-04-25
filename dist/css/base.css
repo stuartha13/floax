@@ -10,7 +10,9 @@
 
 .row { display: -webkit-flex; display: -ms-flexbox; display: flex; -webkit-flex-wrap: wrap; -ms-flex-wrap: wrap; flex-wrap: wrap; margin: 0 -20px; }
 
-.col { -webkit-flex: 1 1 auto; -ms-flex: 1 1 auto; flex: 1 1 auto; padding: 0 20px; max-width: 100%; }
+.col { -webkit-flex: 1 1 100%; -ms-flex: 1 1 100%; flex: 1 1 100%; padding: 0 20px; max-width: 100%; }
+
+@media (min-width: 768px) { .col { -webkit-flex-basis: auto; -ms-flex-preferred-size: auto; flex-basis: auto; } }
 
 .col--1 { -webkit-flex: 1 1 8.33333%; -ms-flex: 1 1 8.33333%; flex: 1 1 8.33333%; max-width: 8.33333%; }
 

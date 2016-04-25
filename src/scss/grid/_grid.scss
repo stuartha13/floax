@@ -105,9 +105,13 @@ $screen-small: 768px !default;
 }
 
 .col {
-  flex: 1 1 auto;
+  flex: 1 1 100%;
   padding: 0 $column-gutter;
   max-width: 100%;
+
+  @media (min-width: $screen-small) {
+    flex-basis: auto;
+  }
 }
 
 // Generate the cell sizings for different breakpoints
