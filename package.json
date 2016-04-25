@@ -1,6 +1,6 @@
 {
   "name": "griddr",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "A simple, customisable, scss Flexbox Grid Library",
   "scripts": {
     "test": "eslint ."
