@@ -4,11 +4,11 @@ import autoprefixer from 'gulp-autoprefixer';
 import del from 'del';
 
 const src = {
-  scss: './src/scss'
+  scss: './src/scss',
 };
 
 const dest = {
-  css: './dist/css'
+  css: './dist/css',
 };
 
 const scssOpts = {

@@ -5,6 +5,11 @@
 // Number of Columns
 $columns: 12 !default;
 $column-gutter: 20px !default;
+$column-fraction-denominators: (1, 2, 3, 4, 5) !default;
+
+// Formatting of classes
+$grid-in-fractions: true;
+$grid-in-columns: true;
 
 // Container widths
 $container-width-large: 1170px !default;
@@ -15,6 +20,11 @@ $container-width-small: 750px !default;
 $screen-large: 1200px !default;
 $screen-medium: 992px !default;
 $screen-small: 768px !default;
+
+// Names
+$container: 'container' !default;
+$cell-wrapper: 'row' !default;
+$cell-prefix: 'col' !default;
 
 // ------------------------------------
 // Mixins
@@ -36,17 +46,51 @@ $screen-small: 768px !default;
 // Cell Size Mixin
 @mixin generate-cols ($columns, $breakpoints) {
   @for $i from 1 through $columns {
-    .col--#{$i} {
-      flex: 1 1 ($i / $columns * 100%);
-      max-width: $i / $columns * 100%;
+    .#{$cell-prefix}--#{$i} {
+      width: $i / $columns * 100%;
     }
 
     @each $bp-size, $name in $breakpoints {
-      .col--#{$i}-#{$name} {
+      .#{$cell-prefix}--#{$i}-#{$name} {
         @media (min-width: $bp-size) {
-          flex: 1 1 ($i / $columns * 100%);
-          max-width: $i / $columns * 100%;
+          width: $i / $columns * 100%;
         }
+      }
+    }
+  }
+}
+
+@mixin col-class-name($numerator, $denominator, $breakpoints) {
+  $fraction: #{$numerator}\/#{$denominator};
+  $width: percentage($numerator/$denominator);
+
+  @if ($numerator == $denominator) {
+    $fraction: 1
+  }
+
+  .#{$cell-prefix}--#{$fraction} {
+    width: $width;
+  }
+
+  @each $bp-size, $name in $breakpoints {
+    .#{$cell-prefix}--#{$fraction} {
+      @media (min-width: $bp-size) {
+        width: $width;
+      }
+    }
+  }
+}
+
+// Cell Size Mixin
+@mixin generate-cols-fractions ($breakpoints) {
+  @each $denominator in $column-fraction-denominators {
+    @if $denominator == 1 {
+      @include col-class-name(1, 1, $breakpoints);
+    }
+
+    @else {
+      @for $i from 1 through ($denominator - 1) {
+        @include col-class-name($i, $denominator, $breakpoints);
       }
     }
   }
@@ -69,11 +113,11 @@ $screen-small: 768px !default;
 
 // Cell Alignment Mixin
 @mixin col-alignment ($position, $breakpoints) {
-  .col--align-#{$position} {
+  .#{$cell-prefix}--align-#{$position} {
     @content;
   }
   @each $bp-size, $name in $breakpoints {
-    .col--align-#{$position}-#{$name} {
+    .#{$cell-prefix}--align-#{$position}-#{$name} {
       @media (min-width: $bp-size) {
         @content;
       }
@@ -85,7 +129,7 @@ $screen-small: 768px !default;
 // ------------------------------------
 // CSS
 // ------------------------------------
-.container {
+.#{$container} {
   display: block;
   margin: 0 auto;
   padding: 0 $column-gutter;
@@ -98,28 +142,51 @@ $screen-small: 768px !default;
   ));
 }
 
-.row {
+.#{$cell-wrapper} {
   display: flex;
   flex-wrap: wrap;
   margin: 0 (-$column-gutter);
+
+  &::before,
+  &::after {
+    content: ' ';
+    display: table;
+  }
+
+  &::after {
+    clear: both;
+  }
 }
 
-.col {
-  flex: 1 1 100%;
+.#{$cell-prefix} {
   padding: 0 $column-gutter;
-  max-width: 100%;
+  width: 100%;
+  float: left;
+}
 
+.#{$cell-prefix}--auto {
   @media (min-width: $screen-small) {
-    flex-basis: auto;
+    flex: 1 1 auto;
+    width: auto;
   }
 }
 
 // Generate the cell sizings for different breakpoints
-@include generate-cols($columns, (
-  ($screen-small, 'small'),
-  ($screen-medium, 'medium'),
-  ($screen-large, 'large'))
-);
+@if ($grid-in-columns) {
+  @include generate-cols($columns, (
+    ($screen-small, 'small'),
+    ($screen-medium, 'medium'),
+    ($screen-large, 'large'))
+  );
+}
+
+@if ($grid-in-fractions) {
+  @include generate-cols-fractions((
+    ($screen-small, 'small'),
+    ($screen-medium, 'medium'),
+    ($screen-large, 'large'))
+  );
+}
 
 // Row Horizontal Alignment
 @include row-alignment('left', (
