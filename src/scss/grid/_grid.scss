@@ -138,7 +138,7 @@ $cell-prefix: 'col' !default;
   @include generate-container ((
     ($screen-small, $container-width-small),
     ($screen-medium, $container-width-medium),
-    ($screen-large, $container-width-large)
+    ($screen-large, $container-width-large),
   ));
 }
 
@@ -176,7 +176,7 @@ $cell-prefix: 'col' !default;
   @include generate-cols($columns, (
     ($screen-small, 'small'),
     ($screen-medium, 'medium'),
-    ($screen-large, 'large'))
+    ($screen-large, 'large'),)
   );
 }
 
@@ -184,7 +184,7 @@ $cell-prefix: 'col' !default;
   @include generate-cols-fractions((
     ($screen-small, 'small'),
     ($screen-medium, 'medium'),
-    ($screen-large, 'large'))
+    ($screen-large, 'large'),)
   );
 }
 
@@ -192,7 +192,7 @@ $cell-prefix: 'col' !default;
 @include row-alignment('left', (
   ($screen-small, 'small'),
   ($screen-medium, 'medium'),
-  ($screen-large, 'large'))
+  ($screen-large, 'large'),)
 ) {
   justify-content: flex-start;
 }
@@ -200,7 +200,7 @@ $cell-prefix: 'col' !default;
 @include row-alignment('right', (
   ($screen-small, 'small'),
   ($screen-medium, 'medium'),
-  ($screen-large, 'large'))
+  ($screen-large, 'large'),)
 ) {
   justify-content: flex-end;
 }
@@ -208,7 +208,7 @@ $cell-prefix: 'col' !default;
 @include row-alignment('center', (
   ($screen-small, 'small'),
   ($screen-medium, 'medium'),
-  ($screen-large, 'large'))
+  ($screen-large, 'large'),)
 ) {
   justify-content: center;
 }
@@ -217,7 +217,7 @@ $cell-prefix: 'col' !default;
 @include row-alignment('top', (
   ($screen-small, 'small'),
   ($screen-medium, 'medium'),
-  ($screen-large, 'large'))
+  ($screen-large, 'large'),)
 ) {
   align-items: flex-start;
 }
@@ -225,7 +225,7 @@ $cell-prefix: 'col' !default;
 @include row-alignment('bottom', (
   ($screen-small, 'small'),
   ($screen-medium, 'medium'),
-  ($screen-large, 'large'))
+  ($screen-large, 'large'),)
 ) {
   align-items: flex-end;
 }
@@ -233,7 +233,7 @@ $cell-prefix: 'col' !default;
 @include row-alignment('middle', (
   ($screen-small, 'small'),
   ($screen-medium, 'medium'),
-  ($screen-large, 'large'))
+  ($screen-large, 'large'),)
 ) {
   align-items: center;
 }
@@ -242,7 +242,7 @@ $cell-prefix: 'col' !default;
 @include col-alignment('top', (
   ($screen-small, 'small'),
   ($screen-medium, 'medium'),
-  ($screen-large, 'large'))
+  ($screen-large, 'large'),)
 ) {
   align-self: flex-start;
 }
@@ -250,7 +250,7 @@ $cell-prefix: 'col' !default;
 @include col-alignment('bottom', (
   ($screen-small, 'small'),
   ($screen-medium, 'medium'),
-  ($screen-large, 'large'))
+  ($screen-large, 'large'),)
 ) {
   align-self: flex-end;
 }
@@ -258,7 +258,7 @@ $cell-prefix: 'col' !default;
 @include col-alignment('middle', (
   ($screen-small, 'small'),
   ($screen-medium, 'medium'),
-  ($screen-large, 'large'))
+  ($screen-large, 'large'),)
 ) {
   align-self: center;
 }
