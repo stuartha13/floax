@@ -73,7 +73,7 @@ $cell-prefix: 'col' !default;
   }
 
   @each $bp-size, $name in $breakpoints {
-    .#{$cell-prefix}--#{$fraction} {
+    .#{$cell-prefix}--#{$fraction}-#{$name} {
       @media (min-width: $bp-size) {
         width: $width;
       }
