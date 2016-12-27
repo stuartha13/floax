@@ -8,8 +8,8 @@ $column-gutter: 15px !default;
 $column-fraction-denominators: (1, 2, 3, 4, 5) !default;
 
 // Formatting of classes
-$grid-in-fractions: true;
-$grid-in-columns: true;
+$grid-in-fractions: true !default;
+$grid-in-columns: true !default;
 
 // Container widths
 $container-width-large: 1170px !default;
