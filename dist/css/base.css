@@ -14,9 +14,7 @@
 
 .row + .row { margin-top: 15px; }
 
-.row::before, .row::after { content: ' '; display: table; }
-
-.row::after { clear: both; }
+.row::after { content: ' '; display: table; clear: both; }
 
 .col { padding: 0 15px; margin: 15px 0; width: 100%; float: left; }
 

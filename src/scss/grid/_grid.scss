@@ -160,13 +160,9 @@ $cell: 'col' !default;
     margin-top: $column-gutter;
   }
 
-  &::before,
   &::after {
     content: ' ';
     display: table;
-  }
-
-  &::after {
     clear: both;
   }
 }
