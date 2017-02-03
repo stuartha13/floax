@@ -2,8 +2,8 @@
 <html>
 
 <head>
-    <title></title>
-    <link rel="stylesheet" type="text/css" href="../dist/css/base.css">
+    <title>Floax | Simple, flex grid that falls back to floats</title>
+    <link rel="stylesheet" type="text/css" href="css/base.css">
     <style type="text/css">
       html,
       body {
@@ -15,6 +15,7 @@
         background-color: #C2185B;
         color: #fff;
         font-size: 12px;
+        text-align: center;
       }
 
       .box--outer {
@@ -25,6 +26,15 @@
         height: 150px;
       }
 
+      pre {
+        display: inline-block;
+        margin: 0;
+        padding: 5px;
+        background: #eee;
+        border-radius: 5px;
+        color: #666;
+      }
+
     </style>
 </head>
 
@@ -32,49 +42,50 @@
   <div class="container">
     <div class="row">
       <div class="col">
-        <h1>Grids - 101</h1>
+        <h1>Floax</h1>
+        <h2>Simple, flex grid that falls back to floats</h2>
       </div>
     </div>
 
     <!-- Auto Width Cols -->
     <div class="row">
-      <div class="col col--12-small">
+      <div class="col col--1-small">
         <h3>Automatic column widths</h3>
       </div>
 
       <div class="col col--auto">
         <div class="box">
-          Auto
+          <pre>auto</pre>
         </div>
       </div>
 
       <div class="col col--auto">
         <div class="box">
-          Auto
+          <pre>auto</pre>
         </div>
       </div>
 
       <div class="col col--auto">
         <div class="box">
-          Auto
+          <pre>auto</pre>
         </div>
       </div>
 
       <div class="col col--auto">
         <div class="box">
-          Auto
+          <pre>auto</pre>
         </div>
       </div>
 
       <div class="col col--auto">
         <div class="box">
-          Auto
+          <pre>auto</pre>
         </div>
       </div>
 
       <div class="col col--auto">
         <div class="box">
-          Auto
+          <pre>auto</pre>
         </div>
       </div>
     </div>
@@ -85,91 +96,91 @@
         <h3>Set column widths</h3>
       </div>
 
-      <div class="col col--12-small">
+      <div class="col col--1-small">
         <div class="box">
-          12 Cols
+          <pre>full-width</pre>
         </div>
       </div>
 
-      <div class="col col--3-small">
+      <div class="col col--1/4-small">
         <div class="box">
-          3 Cols
+          <pre>1/4 col</pre>
         </div>
       </div>
 
-      <div class="col col--3-small">
+      <div class="col col--1/4-small">
         <div class="box">
-          3 Cols
+          <pre>1/4 col</pre>
         </div>
       </div>
 
-      <div class="col col--3-small">
+      <div class="col col--1/4-small">
         <div class="box">
-          3 Cols
+          <pre>1/4 col</pre>
         </div>
       </div>
 
-      <div class="col col--3-small">
+      <div class="col col--1/4-small">
         <div class="box">
-          3 Cols
+          <pre>1/4 col</pre>
         </div>
       </div>
 
-      <div class="col col--6-small">
+      <div class="col col--1/2-small">
         <div class="box">
-          6 Cols
+          <pre>1/2 col</pre>
         </div>
       </div>
 
-      <div class="col col--6-small">
+      <div class="col col--1/2-small">
         <div class="box">
-          6 Cols
+          <pre>1/2 col</pre>
         </div>
       </div>
     </div>
 
     <!-- Nested Grids -->
     <div class="row">
-      <div class="col col--12-small">
+      <div class="col col--1-small">
         <h3>Nested grids</h3>
       </div>
 
-      <div class="col col--5-small">
+      <div class="col col--2/5-small">
         <div class="box box--outer">
           <div class="row">
-            <div class="col col--6-small">
+            <div class="col col--1/2-small">
               <div class="box">
-                6 Cols
+                <pre>1/2 col</pre>
               </div>
             </div>
 
-            <div class="col col--6-small">
+            <div class="col col--1/2-small">
               <div class="box">
-                6 Cols
+                <pre>1/2 col</pre>
               </div>
             </div>
           </div>
         </div>
       </div>
 
-      <div class="col col--7-small">
+      <div class="col col--3/5-small">
         <div class="box box--outer">
           <div class="row">
-            <div class="col col--4-small">
+            <div class="col col--1/3-small">
               <div class="box">
-                4 Cols
+                <pre>1/3 col</pre>
               </div>
             </div>
 
-            <div class="col col--4-small">
+            <div class="col col--1/3-small">
               <div class="box">
-                4 Cols
+                <pre>1/3 col</pre>
               </div>
             </div>
 
-            <div class="col col--4-small">
+            <div class="col col--1/3-small">
               <div class="box">
-                4 Cols
+                <pre>1/3 col</pre>
               </div>
             </div>
           </div>
@@ -179,91 +190,91 @@
 
     <!-- Align Grids -->
     <div class="row">
-      <div class="col col--12-small">
+      <div class="col col--1-small">
         <h3>Alignment of grids</h3>
       </div>
     </div>
 
     <div class="row row--align-top-small">
-      <div class="col col--12-small">
+      <div class="col col--1-small">
         <p>Top aligned</p>
       </div>
-      <div class="col col--5-small ">
+      <div class="col col--2/5-small ">
         <div class="box box--tall">
-          5 col
+          <pre>2/5 col</pre>
         </div>
       </div>
 
-      <div class="col col--7-small ">
+      <div class="col col--3/5-small ">
         <div class="box">
-          7 col
+          <pre>3/5 col</pre>
         </div>
       </div>
     </div>
 
     <div class="row row--align-middle-small">
-      <div class="col col--12-small">
+      <div class="col col--1-small">
         <p>Middle aligned</p>
       </div>
-      <div class="col col--5-small ">
+      <div class="col col--2/5-small ">
         <div class="box box--tall">
-          5 col
+          <pre>2/5 col</pre>
         </div>
       </div>
 
-      <div class="col col--7-small ">
+      <div class="col col--3/5-small ">
         <div class="box">
-          7 col
+          <pre>3/5 col</pre>
         </div>
       </div>
     </div>
 
     <div class="row row--align-bottom-small">
-      <div class="col col--12-small">
+      <div class="col col--1-small">
         <p>Bottom aligned</p>
       </div>
-      <div class="col col--5-small ">
+      <div class="col col--2/5-small ">
         <div class="box box--tall">
-          5 col
+          <pre>2/5 col</pre>
         </div>
       </div>
 
-      <div class="col col--7-small ">
+      <div class="col col--3/5-small ">
         <div class="box">
-          7 col
+          <pre>3/5 col</pre>
         </div>
       </div>
     </div>
 
     <div class="row row--align-left-small">
-      <div class="col col--12-small">
+      <div class="col col--1-small">
         <p>Left aligned</p>
       </div>
-      <div class="col col--5-small ">
+      <div class="col col--2/5-small ">
         <div class="box box--tall">
-          5 col
+          <pre>2/5 col</pre>
         </div>
       </div>
     </div>
 
     <div class="row row--align-center-small">
-      <div class="col col--12-small">
+      <div class="col col--1-small">
         <p>Center aligned</p>
       </div>
-      <div class="col col--5-small ">
+      <div class="col col--2/5-small ">
         <div class="box box--tall">
-          5 col
+          <pre>2/5 col</pre>
         </div>
       </div>
     </div>
 
     <div class="row row--align-right-small">
-      <div class="col col--12-small">
+      <div class="col col--1-small">
         <p>Right aligned</p>
       </div>
-      <div class="col col--5-small ">
+      <div class="col col--2/5-small ">
         <div class="box box--tall">
-          5 col
+          <pre>2/5 col</pre>
         </div>
       </div>
     </div>

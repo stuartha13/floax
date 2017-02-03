@@ -9,6 +9,7 @@ const src = {
 
 const dest = {
   css: './dist/css',
+  docs: './docs/css'
 };
 
 const scssOpts = {
@@ -26,8 +27,9 @@ gulp.task('scss', () =>
     .on('error', sass.logError))
     .pipe(autoprefixer(autoprefixerOpts))
     .pipe(gulp.dest(dest.css))
+    .pipe(gulp.dest(dest.docs))
 );
 
-gulp.task('clean', () => del(['./dist']));
+gulp.task('clean', () => del(['./dist', dest.docs]));
 
 gulp.task('default', ['clean', 'scss']);
