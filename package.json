@@ -1,6 +1,6 @@
 {
   "name": "floax",
-  "version": "1.0.6",
+  "version": "1.0.7",
   "description": "Simple, flex grid that falls back to floats",
   "scripts": {
     "test": "eslint ."
